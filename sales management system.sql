@@ -170,6 +170,16 @@ EXEC GetSalesData
     @username = 'chennai_admin',
     @password = 'pass123';
 
- 
+use SalesDB;
+ Delete from payment_splits;
+ Delete from customer_sales;
+ Delete from users;
+ Delete from branches;
 
-SELECT COUNT(*) FROM customer_sales;
+
+DBCC checkident ('payment_splits',RESEED,0);
+DBCC checkident ('customer_sales',RESEED,0);
+DBCC checkident ('users',RESEED,0);
+DBCC checkident ('branches',RESEED,0);
+
+select * from users;
