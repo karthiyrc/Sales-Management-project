@@ -4,9 +4,9 @@ import pyodbc
 import pandas as pd
 from datetime import date
 
-# ═══════════════════════════════════════════════════
+
 # DATABASE CONNECTION
-# ═══════════════════════════════════════════════════
+
 
 def get_connection():
     conn = pyodbc.connect(
@@ -128,9 +128,9 @@ def get_pending_sales(role, branch_id):
     conn.close()
     return df
 
-# ═══════════════════════════════════════════════════
+
 # PAGE CONFIG
-# ═══════════════════════════════════════════════════
+
 
 st.set_page_config(
     page_title="Sales Management System",
@@ -138,9 +138,8 @@ st.set_page_config(
     layout="wide"
 )
 
-# ═══════════════════════════════════════════════════
 # SESSION STATE
-# ═══════════════════════════════════════════════════
+
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -153,9 +152,9 @@ if "username" not in st.session_state:
 if "page" not in st.session_state:
     st.session_state.page = "Dashboard & Reports"
 
-# ═══════════════════════════════════════════════════
+
 # LOGIN PAGE
-# ═══════════════════════════════════════════════════
+
 
 def show_login_page():
     st.title("Sales Management System")
@@ -178,9 +177,9 @@ def show_login_page():
         else:
             st.warning("Please enter username and password!")
 
-# ═══════════════════════════════════════════════════
+
 # SIDEBAR
-# ═══════════════════════════════════════════════════
+
 
 def show_sidebar():
     with st.sidebar:
@@ -212,9 +211,9 @@ def show_sidebar():
             st.session_state.page      = "Dashboard & Reports"
             st.rerun()
 
-# ═══════════════════════════════════════════════════
+
 # PAGE 1 — DASHBOARD & REPORTS
-# ═══════════════════════════════════════════════════
+
 
 def show_dashboard():
     st.title("📊 Dashboard & Reports")
@@ -290,9 +289,9 @@ def show_dashboard():
         mime="text/csv"
     )
 
-# ═══════════════════════════════════════════════════
+
 # PAGE 2 — DATA ENTRY WORKSPACE
-# ═══════════════════════════════════════════════════
+
 
 def show_data_entry():
     st.title("📝 Operations Record Creator")
@@ -404,9 +403,8 @@ def show_data_entry():
                 else:
                     st.warning("Please enter amount!")
 
-# ═══════════════════════════════════════════════════
 # PAGE 3 — ADVANCED SQL ENGINE
-# ═══════════════════════════════════════════════════
+
 
 def show_sql_engine():
     st.title("🔍 Advanced SQL Engine")
@@ -603,9 +601,9 @@ ORDER BY gross_sales DESC""",
                 st.error(f"SQL Error: {e}")
         else:
             st.warning("Please enter or select a query!")
-# ═══════════════════════════════════════════════════
+
 # MAIN ROUTER
-# ═══════════════════════════════════════════════════
+
 
 if not st.session_state.logged_in:
     show_login_page()
