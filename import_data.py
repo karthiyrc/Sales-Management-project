@@ -25,7 +25,7 @@ for _, row in df.iterrows():
         row['branch_admin_name']
     ))
 conn.commit()
-print(f"✅ {len(df)} branches done!")
+print(f" {len(df)} branches done!")
 
 print("Importing users...")
 df = pd.read_csv(
@@ -48,7 +48,7 @@ for _, row in df.iterrows():
         row['email']
     ))
 conn.commit()
-print(f"✅ {len(df)} users done!")
+print(f" {len(df)} users done!")
 
 print("Importing customer_sales...")
 df = pd.read_csv(
@@ -73,7 +73,7 @@ for _, row in df.iterrows():
         row['status']
     ))
 conn.commit()
-print(f"✅ {len(df)} sales done!")
+print(f" {len(df)} sales done!")
 
 print("Importing payment_splits...")
 df = pd.read_csv(
@@ -92,7 +92,7 @@ for _, row in df.iterrows():
         row['payment_method']
     ))
 conn.commit()
-print(f"✅ {len(df)} payments done!")
+print(f" {len(df)} payments done!")
 
 conn.close()
-print("\n🎉 All imported successfully!")
+print("\n All imported successfully!")
