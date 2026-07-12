@@ -1,4 +1,4 @@
-create database SalesDB;
+CREATE DATABASE SalesDB;
 
 use SalesDB;
 -- BRANCHES
